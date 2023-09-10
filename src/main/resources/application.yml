@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    include: db
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 40 # 테스트 환경, NamedLock 에서 같은 datasource 를 사용하기 위해 변경
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
